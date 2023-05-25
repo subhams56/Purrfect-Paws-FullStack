@@ -1,0 +1,23 @@
+Routes & Controllers done so far: 
+Authentication Routes:
+
+POST /register: Register a new user.
+POST /login: User login.
+User Routes:
+
+GET /: Retrieve all users.
+GET /:id: Retrieve a user by ID.
+PUT /updateUser/:id: Update a user by ID.
+DELETE /deleteUser/:id: Delete a user by ID.
+Cat Routes:
+
+GET /: Retrieve all cats.
+GET /:id: Retrieve a cat by ID.
+POST /createCat: Create a new cat (with image upload support).
+PUT /updateCat/:id: Update a cat by ID (with image upload support).
+DELETE /deleteCat/:id: Delete a cat by ID.
+
+
+
+to do : 
+ figure out how the adoption process will be taking place and make necessary changes for that.
