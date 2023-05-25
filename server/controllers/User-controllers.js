@@ -25,7 +25,8 @@ export const getAllUsers = async (req, res) => {
 export const getUserById = async (req,res)=>{
     try{
         const userID = req.params.id;
-        const userFind = await User.findById(userID);
+        const userFind = await User.findById(userID).populate('interestedCats')
+        .populate('catsOwned');
         if(!userFind){
             return res.status(404).json({msg:"User not found"});
         }

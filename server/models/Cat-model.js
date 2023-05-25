@@ -32,7 +32,7 @@ const catSchema = new mongoose.Schema({
       enum: ['Available', 'Pending', 'Adopted'],
       default: 'Available'
     },
-    user: {
+    owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     }

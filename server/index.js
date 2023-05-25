@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv';
 import authRouter from "./routes/Auth-routes.js";
 import { userRouter } from "./routes/User-routes.js";
 import { catRouter } from "./routes/Cat-routes.js";
+import adoptionRouter from "./routes/Adoption-routes.js";
 
 
 dotenv.config()
@@ -25,6 +26,7 @@ const app = express();
   app.use("/api/auth", authRouter);
   app.use("/api/users", userRouter);
   app.use("/api/cats",  catRouter);
+  app.use("/api/adopt",adoptionRouter);
 
 
 // mongodb connection 
