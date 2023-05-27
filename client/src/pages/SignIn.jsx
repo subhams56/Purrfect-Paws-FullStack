@@ -76,7 +76,7 @@ const SignIn = () => {
     </div>
    
     <div
-      className="w-full h-screen bg-center bg-cover"
+      className="hidden w-full h-screen bg-center bg-cover md:block"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
