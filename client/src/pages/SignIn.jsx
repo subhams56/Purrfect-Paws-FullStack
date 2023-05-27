@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 
 import catsvg from "../assets/catsvg5.svg"
 import logo from '../assets/log2.png';
+import { Helmet } from "react-helmet";
 
 import image from '../assets/catimg14.jpg';
 
 const SignIn = () => {
   return (
     <>
+    <Helmet title='Purrfect Paws | Sign In' />
     <div className='flex '>
     <div className='w-[770px] h-screen bg-white'>
     <div className='flex items-center mt-6 ml-7 gap-x-3'>

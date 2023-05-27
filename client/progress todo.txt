@@ -1,0 +1,4 @@
+Homepage and Signin Signup Pages done.
+Need to Move on to the Feed Pages.
+
+but first figure out what how to manage thee protected routes. (both in FE& BE)

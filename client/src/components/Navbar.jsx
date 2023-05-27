@@ -21,7 +21,7 @@ const Navbar = () => {
           <div className='NavbarItems'>
             <ul className='hidden text-lg font-medium md:flex gap-x-9'>
               <li className='cursor-pointer hover:text-xl'>
-                <Link to='/about'>About</Link>
+                <Link to='/aboutus'>About</Link>
               </li>
               <li className='cursor-pointer hover:text-xl'>
                 <Link to='/services'>Services</Link>
