@@ -6,11 +6,12 @@ import Hero1 from '../components/Hero1'
 import Hero2 from '../components/Hero2'
 import { TeamsThree } from '../components/TeamsThree'
 import { Cta } from '../components/Cta'
+import { Topscroll } from '../middlewares/Topscroll'
 
 
 const HomePage = () => {
   return (
-    
+    Topscroll(),
     <>
     <Helmet title='Purrfect Paws | Home' />
     

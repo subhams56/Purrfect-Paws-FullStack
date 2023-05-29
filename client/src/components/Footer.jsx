@@ -1,11 +1,12 @@
-import React from 'react'
+
+import { Link } from 'react-router-dom';
 import logo from '../assets/log2.png';
 
 export function Footer() {
   return (
     <section className=" container mx-auto relative overflow-hidden bg-[#e9ecf0] py-8">
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="-m-8 flex flex-wrap items-center justify-between">
+      <div className="container relative z-10 px-4 mx-auto">
+        <div className="flex flex-wrap items-center justify-between -m-8">
           <div className="w-auto p-8">
             <a href="#">
               <div className="inline-flex items-center">
@@ -20,21 +21,21 @@ export function Footer() {
             </a>
           </div>
           <div className="w-auto p-8">
-            <ul className="-m-5 flex flex-wrap items-center">
+            <ul className="flex flex-wrap items-center -m-5">
               <li className="p-5">
-                <a className="font-medium text-gray-600 hover:text-gray-700" href="#">
-                  Privacy Policy
-                </a>
+                <Link to="/aboutus" className="font-medium text-gray-600 hover:text-gray-700" >
+                  About
+                </Link>
               </li>
               <li className="p-5">
-                <a className="font-medium text-gray-600 hover:text-gray-700" href="#">
-                  Terms of Service
-                </a>
+              <Link to="/services" className="font-medium text-gray-600 hover:text-gray-700" >
+                  Services
+                </Link>
               </li>
               <li className="p-5">
-                <a className="font-medium text-gray-600 hover:text-gray-700" href="#">
-                  Return Policy
-                </a>
+              <Link to="/pricing" className="font-medium text-gray-600 hover:text-gray-700" >
+                  Pricing
+                </Link>
               </li>
               <li className="p-5">
                 <a className="font-medium text-gray-600 hover:text-gray-700" href="#">
@@ -47,7 +48,7 @@ export function Footer() {
             <div className="-m-1.5 flex flex-wrap">
               <div className="w-auto p-1.5">
                 <a href="#">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:border-gray-400">
+                  <div className="flex items-center justify-center w-8 h-8 border border-gray-300 rounded-full hover:border-gray-400">
                     <svg
                       width="8"
                       height="14"
@@ -65,7 +66,7 @@ export function Footer() {
               </div>
               <div className="w-auto p-1.5">
                 <a href="#">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:border-gray-400">
+                  <div className="flex items-center justify-center w-8 h-8 border border-gray-300 rounded-full hover:border-gray-400">
                     <svg
                       width="14"
                       height="11"
@@ -83,7 +84,7 @@ export function Footer() {
               </div>
               <div className="w-auto p-1.5">
                 <a href="#">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 hover:border-gray-400">
+                  <div className="flex items-center justify-center w-8 h-8 border border-gray-300 rounded-full hover:border-gray-400">
                     <svg
                       width="16"
                       height="15"
@@ -104,7 +105,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <p className="text-sm text-gray-600 text-center">
+      <p className="text-sm text-center text-gray-600">
                   &copy; Copyright 2023. All Rights Reserved by Purrfect Paws.
                 </p>
     </section>

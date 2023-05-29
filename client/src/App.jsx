@@ -8,6 +8,7 @@ import Feed from "./pages/Feed"
 import { AboutUs } from "./pages/AboutUs"
 import Services from "./pages/Services"
 import { Pricing } from "./pages/Pricing"
+import Account from "./pages/Account"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <Route path="/aboutus" element={<AboutUs/>} />
     <Route path="/services" element={<Services/>} />
     <Route path="/pricing" element={<Pricing/>} />
+    <Route path="/account" element={<Account/>} />
 
     
 
