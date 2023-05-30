@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Nav3 from './Nav3';
 import { Topscroll } from '../middlewares/Topscroll';
+import Footer from './Footer';
 
 
 const CatPage = () => {
@@ -64,7 +65,10 @@ const CatPage = () => {
       ) : (
         <p className="text-xl text-center">Loading .... please wait</p>
       )}
+      
     </div>
+    <Footer className=""/>
+    
     </>
   );
 };

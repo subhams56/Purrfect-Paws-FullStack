@@ -20,6 +20,9 @@ const Navbar = () => {
 
           <div className='NavbarItems'>
             <ul className='hidden text-lg font-medium md:flex gap-x-9'>
+            <li className='cursor-pointer hover:text-xl'>
+                <Link to='/feed'>Discover Paws</Link>
+              </li>
               <li className='cursor-pointer hover:text-xl'>
                 <Link to='/aboutus'>About</Link>
               </li>

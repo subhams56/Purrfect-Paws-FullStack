@@ -1,54 +1,67 @@
 import { useState , useEffect } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Card3 = () => {
+  const notify = () => toast("Wow so easy!");
     const [posts , setCatData] = useState([])
 
     useEffect(() => {
-
-        const getCats = async ()=>{
-            const cats = await axios.get('http://localhost:3000/api/cats/');
-            console.log(cats.data.cats);
-            setCatData(cats.data.cats);
-        };
-
-        getCats();
-        }
+      const getCats = async () => {
+        try {
+          const cats = await axios.get('http://localhost:3000/api/cats/');
+          console.log(cats.data.cats);
+          setCatData(cats.data.cats);
           
+          // Display toast notification
+          toast.success("🐱 Click on the Cat's name to view details", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+        } catch (error) {
+          console.log(error);
+        }
+      };
     
+      getCats();
+    }, []);
     
-    
-    , [])
 
 
   return (
     <div className="grid gap-6 py-6 cursor-pointer gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+    
+   
           {posts.map((post) => (
             <div key={post._id} className="border">
-              <img src={`http://localhost:3000/uploads/${post.image}`} className="w-full rounded-md aspect-video" alt="" />
+              <Link to={`/cat/${post._id}`}><img src={`http://localhost:3000/uploads/${post.image}`} className="w-full rounded-md aspect-video" alt="" /></Link>
               <div className="p-3 min-h-min">
                 
-                <Link to={`/cat/${post._id}`} className="flex mt-4 text-base font-semibold text-gray-900">{post.name}</Link>
-                <div className="flex">
-                <p className="w-full mt-4 text-sm leading-normal text-gray-600 cursor-text">Breed :
-                  {post.breed}
+                <Link to={`/cat/${post._id}`} className="flex mt-4 text-bold text-xl font-bold text-gray-900">{post.name}</Link>
+                <div className>
+                <p className="w-full mt-4 text-lg   leading-normal text-gray-600 cursor-text">Breed :
+                   <span className=" font-handwriting2 font-bold text-gray-900"> {post.breed}</span> 
                 </p>
-                <p className="w-full mt-4 text-sm leading-normal text-gray-600 cursor-text"> About :
-                  {post.description}
-                </p>
-                <p className="w-full mt-4 text-sm leading-normal text-gray-600 cursor-text">Age :
-                  {post.age}
-                </p>
-                <p className="w-full mt-4 text-sm leading-normal text-gray-600 cursor-text">Gender :
+               
+                
+                <p className="w-full mt-4 text-sm leading-normal text-gray-600 cursor-text">
                   {post.gender}
                 </p>
                 </div>
                 <div className="flex mt-4 space-x-3 ">
                 
                   <div>
-                    <p className="text-sm font-semibold leading-tight text-gray-900">Owner :
-                      {post.owner.username}
+                    <p className="text-sm  leading-tight text-gray-600">Owner :
+                    <span className=" font-handwriting2 text-lg font-extrabold text-gray-900"> {post.owner.username}</span>
+                      
                     </p>
                     
                   </div>
@@ -56,6 +69,18 @@ const Card3 = () => {
               </div>
             </div>
           ))}
+          <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
         </div>
   )
 }

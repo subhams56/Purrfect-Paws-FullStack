@@ -9,7 +9,7 @@ export function Cta() {
           <div className="isolate flex justify-center -space-x-2">
             <img
               className="relative z-30 inline-block h-20 w-20 rounded-full ring-4 ring-white"
-              src="https://images.pexels.com/photos/7314080/pexels-photo-7314080.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              src="https://images.pexels.com/photos/7128287/pexels-photo-7128287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="Dan_Abromov"
             />
             <img

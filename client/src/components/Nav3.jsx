@@ -29,13 +29,13 @@ const Nav3 = () => {
             </div>
             {/* Navigation links */}
             <div className="flex items-center ">
-              <Link to="/" className="px-3 py-2 text-sm font-medium text-gray-900 rounded-md hover:text-black hover:text-lg">
+              <Link to="/" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
                 Home
               </Link    >
-              <Link  to="/feed"className="px-3 py-2 text-sm font-medium text-gray-900 rounded-md hover:text-black hover:text-lg">
+              <Link  to="/feed"className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
                 Feed
               </Link    >
-              <Link to="/signin" className="px-3 py-2 text-sm font-medium text-gray-900 rounded-md hover:text-black hover:text-lg">
+              <Link to="/signin" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
                 Register
               </Link    >
             </div>
