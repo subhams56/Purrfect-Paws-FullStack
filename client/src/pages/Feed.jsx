@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import Footer from "../components/Footer"
 import Navbar from "../components/Nav2"
 import { Topscroll } from "../middlewares/Topscroll";
-import Card2 from "../components/Card2";
+import Card3 from "../components/Card3";
 
 
 
@@ -50,7 +50,7 @@ export function Feed() {
           </div>
         </div>
         {/* posts */}
-        <Card2/>
+        <Card3/>
         
         <div className="w-full border-t border-gray-300">
           <div className="flex items-center justify-between mt-2">

@@ -9,6 +9,8 @@ import { AboutUs } from "./pages/AboutUs"
 import Services from "./pages/Services"
 import { Pricing } from "./pages/Pricing"
 import Account from "./pages/Account"
+import TestData from "./pages/TestData"
+import CatPage from "./components/CatPage"
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
     <Route path="/services" element={<Services/>} />
     <Route path="/pricing" element={<Pricing/>} />
     <Route path="/account" element={<Account/>} />
+    <Route path="/test" element={<TestData/>} />
+    <Route path="/cat/:id" element={<CatPage/>} />
 
     
 
