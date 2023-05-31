@@ -24,8 +24,9 @@ const SignIn = () => {
       const { userData ,token  } = response.data;
       localStorage.setItem('userID', userData._id);
       localStorage.setItem('token', token);
+      localStorage.setItem('user', userData.username);
       
-      alert(`Login Successful. Welcome ${userData.username}`);
+      
       navigate('/account');
     } catch (error) {
       console.error(error);

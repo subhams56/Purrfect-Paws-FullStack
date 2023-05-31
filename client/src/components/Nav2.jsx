@@ -33,9 +33,13 @@ const Nav2 = () => {
           </div>
 
           <div className='items-center h-auto text-center'>
-            <Link to='/' className='p-3 text-lg font-bold text-black bg-white border-2 border-black border-opacity-50 hover:bg-sky-300 rounded-xl font-handwriting2'>
+            <Link to='/' className='p-3 mx-4 text-lg font-bold text-black bg-white border-2 border-black border-opacity-50 hover:bg-sky-300 rounded-xl font-handwriting2'>
             🐾Home
             </Link>
+            <Link to='/account' className='p-3 text-lg font-bold text-black bg-white border-2 border-black border-opacity-50 hover:bg-sky-300 rounded-xl font-handwriting2'>
+            👤Account
+            </Link>
+            
           </div>
         </nav>
       </div>

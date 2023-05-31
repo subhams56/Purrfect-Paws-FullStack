@@ -5,6 +5,7 @@ import Navbar from "../components/Nav2"
 import { Topscroll } from "../middlewares/Topscroll";
 import Card3 from "../components/Card3";
 import catsvg from "../assets/catsvg6.svg"
+import Nav2 from "../components/Nav2";
 
 
 
@@ -20,7 +21,7 @@ export function Feed() {
   return (
     <div >
        <Helmet title='Purrfect Paws | Feed' />
-        <Navbar/>
+        <Nav2/>
       
 
       <div className="px-2 mx-auto mt-24 max-w-7xl">
