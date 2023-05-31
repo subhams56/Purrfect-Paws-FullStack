@@ -6,6 +6,7 @@ import authRouter from "./routes/Auth-routes.js";
 import { userRouter } from "./routes/User-routes.js";
 import { catRouter } from "./routes/Cat-routes.js";
 import adoptionRouter from "./routes/Adoption-routes.js";
+import cookieParser from "cookie-parser";
 
 
 dotenv.config()
@@ -19,6 +20,7 @@ const app = express();
 
  //middlewares
  app.use(express.json());
+ app.use(cookieParser());
  app.use(express.urlencoded({extended:true}));
  app.use(cors());
  app.use('/uploads', express.static('uploads')  );
