@@ -45,10 +45,10 @@ const Card3 = () => {
               <Link to={`/cat/${post._id}`}><img src={`http://localhost:3000/uploads/${post.image}`} className="w-full rounded-md aspect-video" alt="" /></Link>
               <div className="p-3 min-h-min">
                 
-                <Link to={`/cat/${post._id}`} className="flex mt-4 text-bold text-xl font-bold text-gray-900">{post.name}</Link>
+                <Link to={`/cat/${post._id}`} className="flex mt-4 text-xl font-bold text-gray-900 text-bold">{post.name}</Link>
                 <div className>
-                <p className="w-full mt-4 text-lg   leading-normal text-gray-600 cursor-text">Breed :
-                   <span className=" font-handwriting2 font-bold text-gray-900"> {post.breed}</span> 
+                <p className="w-full mt-4 text-lg leading-normal text-gray-600 cursor-text">Breed :
+                   <span className="font-bold text-gray-900 font-handwriting2"> {post.breed}</span> 
                 </p>
                
                 
@@ -59,8 +59,8 @@ const Card3 = () => {
                 <div className="flex mt-4 space-x-3 ">
                 
                   <div>
-                    <p className="text-sm  leading-tight text-gray-600">Owner :
-                    <span className=" font-handwriting2 text-lg font-extrabold text-gray-900"> {post.owner.username}</span>
+                    <p className="text-sm leading-tight text-gray-600">Owner :
+                    <span className="text-lg font-extrabold text-gray-900 font-handwriting2"> {post.owner.username}</span>
                       
                     </p>
                     
