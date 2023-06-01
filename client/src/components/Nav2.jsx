@@ -1,13 +1,16 @@
 
 import logo from '../assets/log2.png';
 import { Link } from 'react-router-dom';
+import Lottie from "lottie-react";
+import catpaw from "../assets/catpaw.json";
+
 
 const Nav2 = () => {
   return (
     <div className='fixed top-0 z-10 w-full'>
       <div className='container w-full h-auto mx-auto bg-white'>
         <nav className='flex items-center justify-between p-4 border-2 rounded-b-lg '>
-          <div className='flex items-center gap-x-3'>
+          <div className='flex items-center gap-x-2'>
             <img
               className='w-16 h-16 p-1 border-2 border-black rounded-full border-opacity-20'
               src={logo}
@@ -16,6 +19,7 @@ const Nav2 = () => {
             <h1 className='text-4xl font-extrabold cursor-pointer font-handwriting text-Black'>
               Purrfect Paws
             </h1>
+            <Lottie animationData={catpaw} className='w-[60px] h-[60px]  rounded-full' />
           </div>
 
           <div className='hidden NavbarItems'>

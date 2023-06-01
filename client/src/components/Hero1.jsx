@@ -1,12 +1,16 @@
 
 import { Link } from "react-router-dom"
 import Catimg from "../assets/catimg8.png"
+import Lottie from "lottie-react"
+import catpaw from "../assets/catpaw.json"
+import cat from "../assets/cat.json"
 
 const Hero1 = () => {
   return (
     <div className='container mx-auto md:flex justify-center md:items-center  mt-40 bg-[#e9ecf0]'>
     <div className='m-4 text-center'>
     <p className=' font-bold text-[#081b15] text-2xl p-2'>Find Your Purrfect Companion at Purrfect Paws 🐾 </p>
+    <Lottie animationData={cat} className='w-[260px] h-[260px] mx-auto' />
     <p className=' md:text-3xl sm:text-2xl text-lg font-bold text-[#000000c6]'>Adoption Process made Easy </p>
 
      <h1 className='text-[#1b1d21] font-handwriting2 md:text-2xl sm:text-xl text-sm font-bold md:py-6 p-2'>Adopt a cat, love them unconditionally, and give them the care they deserve. At Purrfect Paws, we help you find your purrfect companion for a lifetime of happiness...</h1>

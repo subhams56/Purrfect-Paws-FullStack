@@ -1,5 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import catsvg from  "../assets/catsvg3.svg"
+import Lottie from "lottie-react"
+import green from "../assets/green.json"
 
 
 export function Card4(props) {
@@ -37,7 +39,11 @@ export function Card4(props) {
               alt="Dan_Abromov"
             />
             <span className="flex flex-col">
-              <span className="text-[10px] font-medium text-gray-900">Adoption Status</span>
+               <div className='flex items-center gap-x-1'>
+               <span className="text-[10px] font-medium text-gray-900">Adoption Status</span>
+               <Lottie className="mx-auto w-[12px] h-[12px]"  animationData={green} alt="logo" />
+               </div>
+              
               <span className="text-[8px] font-bold text-green-400">{props.adoptionStatus}</span>
             </span>
           </div>

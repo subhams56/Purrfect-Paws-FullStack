@@ -6,6 +6,9 @@ import { Topscroll } from "../middlewares/Topscroll";
 import Card3 from "../components/Card3";
 import catsvg from "../assets/catsvg6.svg"
 import Nav2 from "../components/Nav2";
+import Lottie from "lottie-react";
+import cat from "../assets/cat4.json";
+
 
 
 
@@ -24,7 +27,7 @@ export function Feed() {
         <Nav2/>
       
 
-      <div className="px-2 mx-auto mt-24 max-w-7xl">
+      <div className="px-2 mx-auto mt-12 max-w-7xl">
         <div className="flex flex-col pt-12 pb-10 space-y-8 md:pt-24">
           <p className="text-3xl font-bold text-gray-900 font-handwriting2 md:text-5xl md:leading-10">
             Flurry Feed 🐱
@@ -32,14 +35,17 @@ export function Feed() {
           <p className="max-w-4xl text-base text-gray-600 md:text-xl">
           Discover a world of purr-fection in our Flurry Feed section, where you can browse and connect with adorable flurries waiting for their forever homes. Be the loving parent they deserve and create unforgettable memories together.
           </p>
-          <div className="flex items-center w-full mt-6 space-x-2 md:w-1/3">
-          <h2 className="text-xl ">Latest Additions to our Paw 🐾 Feed </h2>
+         
+          <div className="flex items-center md:ml-[380px] w-full  space-x-2 md:w-1/3">
+          
+          <Lottie animationData={cat} className=' md:block w-[250px] h-auto hidden ml-[100px]   rounded-full items-center' />
            
           </div>
         </div>
-        <div className="flex-col justify-between hidden w-full mt-10 space-y-4 md:flex md:flex-row">
+        <h2 className="text-lg text-black font-handwriting2">Latest Additions to our Paw Feed</h2>
+        <div className="flex-col justify-between hidden w-full mt-5 space-y-4 md:flex md:flex-row ">
           <div className="flex items-end w-full">
-          <img className="  h-24 w-auto" src={catsvg}/>
+          
              
             
           </div>

@@ -1,6 +1,8 @@
 
 import logo from '../assets/log2.png';
 import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react';
+import catpaw from '../assets/catpaw.json';
 
 const Nav4 = () => {
 
@@ -25,6 +27,8 @@ const Nav4 = () => {
             <h1 className='text-4xl font-extrabold text-gray-900 cursor-pointer font-handwriting'>
               Purrfect Paws
             </h1>
+            
+            <Lottie animationData={catpaw} className='w-[60px] h-[60px]  rounded-full' />
           </div>
             </div>
             {/* Navigation links */}

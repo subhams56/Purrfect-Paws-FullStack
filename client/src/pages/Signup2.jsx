@@ -4,6 +4,10 @@ import { Helmet } from 'react-helmet';
 import catsvg from '../assets/svgimg.png';
 import logo from '../assets/log2.png';
 import image from '../assets/catimg11.png';
+import Lottie from 'lottie-react';
+import cat from '../assets/cat2.json';
+import hello from '../assets/hello.json';
+
 
 const SignUp2 = () => {
   const [username, setUsername] = useState('');
@@ -52,9 +56,13 @@ const SignUp2 = () => {
               Purrfect Paws 🐾
             </h1>
           </div>
-          <div className="flex-col gap-x-3">
-            <img className="pt-2 mx-auto w-62 h-44" src={catsvg} alt="logo" />
+          <div className="flex items-center">
+            <Lottie animationData={cat} className=" md:block  w-[280px] h-[280px] hidden ml-[140px]" />
+            <Lottie animationData={hello} className=" md:hidden  w-[230px] h-[230px] ml-20" />
+            
           </div>
+
+          <h2 className=' text-center text-lg font-handwriting2 font-extrabold mb-4'>Register Yourself Here !</h2>
 
           <form className="max-w-sm mx-auto" onSubmit={handleSignUp}>
             <div className="mb-4">

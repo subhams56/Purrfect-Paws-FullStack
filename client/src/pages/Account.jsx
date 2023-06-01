@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import profilesvg from "../assets/profilesvg.svg"
 import { Helmet } from 'react-helmet';
 import Nav4 from '../components/Nav4';
+import Lottie from "lottie-react";
+import cat from "../assets/cat.json"
 
 const Account = () => {
   const navigate = useNavigate();
@@ -101,7 +103,7 @@ theme="dark"
 />
           <div className="overflow-hidden bg-white shadow sm:rounded-lg">
             <div className="px-4 py-5 sm:px-6">
-            <img  className='w-[240px] h-[140px]' src={profilesvg} alt='profilesvg'/>
+            <img  className='w-[240px] h-[140px] ml-[160px]' src={profilesvg} alt='profilesvg'/>
               <h2 className="text-xl font-medium leading-6 text-gray-900"> Account</h2>
               
               <p className="max-w-2xl mt-1 text-sm text-gray-500">View and manage your account details.</p>
@@ -123,10 +125,12 @@ theme="dark"
                       <dd className="mt-1 text-sm font-semibold text-gray-900 sm:mt-0 sm:col-span-2">{userData.phoneNumber}</dd>
                     </div>
                     {/* Display catsOwned as separate cards */}
-                    <div className="flex py-4 sm:py-5 sm:gap-4">
+                    <div className="flex items-center py-4 sm:py-5 sm:gap-4">
                       
-                      <dt className="text-sm font-medium text-black ml-2"> 🐱 Cats Owned By {userData.username} : {userData.catsOwned.length}</dt>
+                      <dt className="text-xl font-medium text-black ml-2"> 🐱 Cats Owned By {userData.username} : {userData.catsOwned.length}</dt>
+                      <Lottie className="w-[150px] h-[150px]" animationData={cat} />
                     </div>
+
                     <div className="sm:grid sm:grid-cols-1 sm:gap-4">
                       {userData.catsOwned.map((cat) => (
                         <Card4

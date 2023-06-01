@@ -37,7 +37,7 @@ const Card3 = () => {
 
 
   return (
-    <div className="grid gap-6 py-6 cursor-pointer gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 py-2 cursor-pointer gap-y-10 md:grid-cols-2 lg:grid-cols-3">
     
    
           {posts.map((post) => (

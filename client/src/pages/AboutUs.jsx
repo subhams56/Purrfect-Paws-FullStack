@@ -6,6 +6,7 @@ import catimg from "../assets/catimg15.jpg"
 import yeswecat from "../assets/catimg16.jpg"
 import { Link } from 'react-router-dom'
 import { Topscroll } from '../middlewares/Topscroll'
+import { Helmet } from 'react-helmet'
 
 
 
@@ -16,6 +17,7 @@ export function AboutUs() {
   
   return (
     <div>
+    <Helmet title='Purrfect Paws | About' />
       <Nav3/>
      
 
