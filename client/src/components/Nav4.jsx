@@ -5,12 +5,7 @@ import Lottie from 'lottie-react';
 import catpaw from '../assets/catpaw.json';
 
 const Nav4 = () => {
-
-
-  
-    
-
-  return (
+return (
     <div >
          <nav>
         <div className="px-4 mx-auto mt-4 max-w-7xl sm:px-6 lg:px-8">
@@ -33,15 +28,16 @@ const Nav4 = () => {
             </div>
             {/* Navigation links */}
             <div className="flex items-center ">
+            <Link to="/addcat" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
+                Add a Cat
+              </Link    >
               <Link to="/" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
                 Home
               </Link    >
               <Link  to="/feed"className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
                 Feed
               </Link    >
-              <Link to="/signin" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
-                Register
-              </Link    >
+             
              
             </div>
           </div>

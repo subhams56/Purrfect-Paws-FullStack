@@ -3,9 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { Card4 } from '../components/Card4';
-import Nav3 from '../components/Nav3';
 import { checkAuthentication } from '../middlewares/checkAuthentication'; // Import the checkAuthentication function
-import catsvg from "../assets/catsvg3.svg"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import profilesvg from "../assets/profilesvg.svg"
@@ -113,21 +111,22 @@ theme="dark"
                 {userData && (
                   <>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                      <dt className="text-sm ml-4 font-medium text-gray-500">Username</dt>
+                      <dt className="ml-4 text-sm font-medium text-gray-500">Username</dt>
                       <dd className="mt-1 text-sm font-semibold text-gray-900 sm:mt-0 sm:col-span-2">{userData.username}</dd>
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                      <dt className="text-sm ml-4 font-medium text-gray-500">Email</dt>
+                      <dt className="ml-4 text-sm font-medium text-gray-500">Email</dt>
                       <dd className="mt-1 text-sm font-semibold text-gray-900 sm:mt-0 sm:col-span-2">{userData.email}</dd>
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                      <dt className="text-sm ml-4 font-medium text-gray-500">Phone Number</dt>
+                      <dt className="ml-4 text-sm font-medium text-gray-500">Phone Number</dt>
                       <dd className="mt-1 text-sm font-semibold text-gray-900 sm:mt-0 sm:col-span-2">{userData.phoneNumber}</dd>
+                      
                     </div>
                     {/* Display catsOwned as separate cards */}
                     <div className="flex items-center py-4 sm:py-5 sm:gap-4">
                       
-                      <dt className="text-xl font-medium text-black ml-2"> 🐱 Cats Owned By {userData.username} : {userData.catsOwned.length}</dt>
+                      <dt className="ml-2 text-xl font-medium text-black"> 🐱 Cats Owned By {userData.username} : {userData.catsOwned.length}</dt>
                       <Lottie className="w-[150px] h-[150px]" animationData={cat} />
                     </div>
 
@@ -135,6 +134,7 @@ theme="dark"
                       {userData.catsOwned.map((cat) => (
                         <Card4
                           key={cat._id}
+                          id={cat._id}
                           name={cat.name}
                           breed={cat.breed}
                           age={cat.age}
@@ -152,9 +152,12 @@ theme="dark"
             </div>
           </div>
         </div>
-        <button onClick={logout} className=" mx-auto p-2 mt-2 border border-black rounded-lg bg-sky-200 hover:bg-purple-400">
+        <div className='items-center mx-auto ml-[210px]'>
+        <button onClick={logout} className="p-2 mx-auto mt-2 border border-black rounded-lg bg-sky-200 hover:bg-purple-400">
           Logout
         </button>
+        </div>
+       
       </section>
 
       {/* Footer */}

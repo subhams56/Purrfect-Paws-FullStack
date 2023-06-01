@@ -35,7 +35,7 @@ const Nav3 = () => {
               <Link  to="/feed"className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
                 Feed
               </Link    >
-              <Link to="/signin" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
+              <Link to="/signup" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
                 Register
               </Link    >
             </div>

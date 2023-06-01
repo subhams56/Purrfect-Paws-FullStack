@@ -55,7 +55,7 @@ export function AboutUs() {
               Our philosophy is simple — hire a team of diverse, passionate people and foster a
               culture that empowers you to do your best work.
             </p>
-            <Link to="/signin"
+            <Link to="/signup"
               type="button"
               className="px-3 py-2 text-sm font-semibold text-white bg-black rounded-md shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >

@@ -3,3 +3,5 @@ export function checkAuthentication() {
     return !!token; // Returns true if token is present, false otherwise
   }
   
+
+export default checkAuthentication;

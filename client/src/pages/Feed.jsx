@@ -1,10 +1,10 @@
 
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer"
-import Navbar from "../components/Nav2"
+
 import { Topscroll } from "../middlewares/Topscroll";
 import Card3 from "../components/Card3";
-import catsvg from "../assets/catsvg6.svg"
+
 import Nav2 from "../components/Nav2";
 import Lottie from "lottie-react";
 import cat from "../assets/cat4.json";

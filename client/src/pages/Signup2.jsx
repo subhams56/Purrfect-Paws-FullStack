@@ -1,19 +1,40 @@
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import catsvg from '../assets/svgimg.png';
 import logo from '../assets/log2.png';
 import image from '../assets/catimg11.png';
 import Lottie from 'lottie-react';
 import cat from '../assets/cat2.json';
 import hello from '../assets/hello.json';
+import AlreadyLoggedIn from './AlreadyLoggedIn';
+import checkAuthentication from '../middlewares/checkAuthentication';
+
+
 
 
 const SignUp2 = () => {
+
+  useEffect(() => {
+    // Check user authentication status
+    const isAuthenticated = checkAuthentication();
+    setLoggedIn(isAuthenticated);
+  }, []);
+
+  
+  const [loggedIn, setLoggedIn] = useState(false); // State to track user authentication status
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  
+  useEffect(() => {
+    // Check user authentication status
+    const isAuthenticated = checkAuthentication();
+    setLoggedIn(isAuthenticated);
+  }, []);
+
+
+
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -44,6 +65,9 @@ const SignUp2 = () => {
   return (
     <>
       <Helmet title="Purrfect Paws | Sign Up" />
+      {loggedIn ? (
+        <AlreadyLoggedIn /> // Render AlreadyLoggedIn component if user is already logged in
+      ) : (
       <div className="flex">
         <div className="w-[770px] h-screen bg-[#f6f6f6]">
           <div className="flex items-center mt-6 ml-7 gap-x-3">
@@ -57,12 +81,12 @@ const SignUp2 = () => {
             </h1>
           </div>
           <div className="flex items-center">
-            <Lottie animationData={cat} className=" md:block  w-[280px] h-[280px] hidden ml-[140px]" />
+           <Lottie animationData={cat} className=" md:block  w-[180px] h-[180px] hidden ml-[140px]" />
             <Lottie animationData={hello} className=" md:hidden  w-[230px] h-[230px] ml-20" />
             
           </div>
 
-          <h2 className=' text-center text-lg font-handwriting2 font-extrabold mb-4'>Register Yourself Here !</h2>
+          <h2 className='mb-4 text-lg font-extrabold text-center font-handwriting2'>Register Yourself Here !</h2>
 
           <form className="max-w-sm mx-auto" onSubmit={handleSignUp}>
             <div className="mb-4">
@@ -133,7 +157,7 @@ const SignUp2 = () => {
                 Home
               </Link>
             </div>
-            <p className="mt-4 text-sm text-center text-gray-600">
+            <p className="mt-4 text-sm text-center text-gray-600 ">
               Already Registered?{' '}
               <Link to="/signin" className="underline cursor-pointer text-sky-500">
                 Sign In here
@@ -151,6 +175,8 @@ const SignUp2 = () => {
           }}
         ></div>
       </div>
+      )}
+      
     </>
   );
 };

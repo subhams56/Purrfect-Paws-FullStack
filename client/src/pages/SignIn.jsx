@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
-import catsvg from '../assets/catsvg5.svg';
 import logo from '../assets/log2.png';
 import image from '../assets/catimg14.jpg';
 import Lottie from "lottie-react";
@@ -52,9 +51,9 @@ const SignIn = () => {
               Purrfect Paws 🐾
             </h1>
           </div>
-          <div className="flex-col gap-x-3 mt-4">
+          <div className="flex-col mt-4 gap-x-3">
             <Lottie className="mx-auto w-42 h-52"  animationData={user} alt="logo" />
-            <Lottie className="mx-auto w-24 h-16"  animationData={login} alt="logo" />
+            <Lottie className="w-24 h-16 mx-auto"  animationData={login} alt="logo" />
           </div>
 
           <form className="max-w-sm mx-auto" onSubmit={handleSignIn}>
