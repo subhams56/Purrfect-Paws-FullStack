@@ -2,6 +2,7 @@ import catsvg from "../assets/catsvg3.svg";
 import Lottie from "lottie-react";
 import green from "../assets/green.json";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function Card4(props) {
   const deleteCat = async () => {
@@ -39,6 +40,7 @@ export function Card4(props) {
             <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
               breed: {props.breed}
             </span>
+          
           </div>
           <div className="flex items-center mt-3 space-x-2">
             <img className="inline-block w-8 h-8 rounded-full" src={catsvg} alt="Dan_Abromov" />
@@ -50,10 +52,10 @@ export function Card4(props) {
             </button>
             <span className="flex flex-col">
               <div className="flex items-center gap-x-1">
-                <span className="text-[10px] font-medium text-gray-900">Adoption Status</span>
+                <Link to={`/adoptionStatus/${props.id}`} className="m-2 border border-black hover:bg-purple-200 rounded-md"><span className="p-2  text-[12px] font-medium text-gray-900">Adoption Status</span></Link>
                 <Lottie className="mx-auto w-[12px] h-[12px]" animationData={green} alt="logo" />
               </div>
-              <span className="text-[8px] font-bold text-green-400">{props.adoptionStatus}</span>
+              
             </span>
           </div>
         </div>

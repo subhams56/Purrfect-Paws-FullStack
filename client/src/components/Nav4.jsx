@@ -3,6 +3,8 @@ import logo from '../assets/log2.png';
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import catpaw from '../assets/catpaw.json';
+import add2 from '../assets/dd2.json';
+import cat from '../assets/cat2.json';
 
 const Nav4 = () => {
 return (
@@ -27,16 +29,22 @@ return (
           </div>
             </div>
             {/* Navigation links */}
-            <div className="flex items-center ">
+            <div className="flex items-center gap-x-10 ">
+            <div className='flex items-center justify-center'>  <Lottie animationData={add2} className='w-[30px] h-[30px]  rounded-full' />
             <Link to="/addcat" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
-                Add a Cat
-              </Link    >
+                Add a Cat 
+              </Link    ></div>
+           
               <Link to="/" className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
-                Home
+                Home 
               </Link    >
+              <div className='flex items-center justify-center'>
               <Link  to="/feed"className="px-3 py-2 text-lg font-medium text-gray-900 rounded-md hover:text-black hover:text-xl">
-                Feed
+                Adopt a Cat
               </Link    >
+              <Lottie animationData={cat} className=' w-[90px] h-[90px]  rounded-full' />
+              </div>
+              
              
              
             </div>

@@ -16,6 +16,8 @@ import CatPage from "./components/CatPage"
 import { Unauthorized } from "./pages/Unauthorized"
 import AddCat from "./pages/AddCat"
 import Adopt from "./pages/Adopt"
+import AdoptionManage from "./pages/AdoptionManage"
+import AdoptionStatus from "./pages/AdoptionStatus"
 
 
 function App() {
@@ -41,6 +43,8 @@ function App() {
         <Route path="/cat/:id" element={<CatPage />} />
         <Route path="/addcat" element={<AddCat />} />
         <Route path="/adopt" element={<Adopt />} />
+        <Route path="/adoptionManage" element={<AdoptionManage />} />
+        <Route path="/adoptionStatus/:catId" element={<AdoptionStatus/>} />
         {/* ...Other routes... */}
       </Routes>
     </BrowserRouter>

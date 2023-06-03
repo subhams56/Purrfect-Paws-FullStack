@@ -11,6 +11,8 @@ import { Helmet } from 'react-helmet';
 import Nav4 from '../components/Nav4';
 import Lottie from "lottie-react";
 import cat from "../assets/cat.json"
+import { Link } from 'react-router-dom';
+import { ArrowBigRight, ArrowDownRight } from 'lucide-react';
 
 const Account = () => {
   const navigate = useNavigate();
@@ -67,6 +69,9 @@ const Account = () => {
     }
   }, [navigate]);
 
+
+
+
   const logout = () => {
     // Clear localStorage
     localStorage.clear();
@@ -121,6 +126,19 @@ theme="dark"
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                       <dt className="ml-4 text-sm font-medium text-gray-500">Phone Number</dt>
                       <dd className="mt-1 text-sm font-semibold text-gray-900 sm:mt-0 sm:col-span-2">{userData.phoneNumber}</dd>
+                      
+                    </div>
+                    <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+
+                      <dt className="ml-4 text-sm font-medium text-gray-500">Interested Cats : {userData.interestedCats.length}</dt>
+                      <dd className="mt-1 text-sm font-semibold text-gray-900 sm:mt-0 sm:col-span-2"> {userData.interestedCats.map(cat => (
+      <p key={cat._id}>{cat.name},</p>
+      
+    ))} </dd>
+    <Link to="/adoptionManage" className=' flex items-center h-7 w-20 ml-4 text-center bg-red-200 border border-black rounded-lg text-sm'>Manage
+    <ArrowBigRight className="inline-block w-4 h-4" />
+    </Link>
+    
                       
                     </div>
                     {/* Display catsOwned as separate cards */}
