@@ -8,8 +8,12 @@ import cat from '../assets/cat2.json';
 import hello from '../assets/hello.json';
 import AlreadyLoggedIn from './AlreadyLoggedIn';
 import checkAuthentication from '../middlewares/checkAuthentication';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp2 = () => {
+
+  const navigate = useNavigate();
+
   const [loggedIn, setLoggedIn] = useState(false); // State to track user authentication status
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -45,6 +49,7 @@ const SignUp2 = () => {
       const data = await response.json();
       console.log(data);
       alert('User Registered Successfully. Please Log in');
+      navigate('/signin');
     } catch (error) {
       console.error(error);
       alert('Registration Failed');

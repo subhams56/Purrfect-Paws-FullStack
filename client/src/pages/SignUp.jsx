@@ -5,10 +5,13 @@ import Catimg1 from "../assets/catimg11.png"
 import svgimg from "../assets/svgimg.png"
 import logo from '../assets/log2.png';
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 
 
 
 const SignUp = () => {
+
+  const navigate = useNavigate();
   return (
     <>
     <Helmet title='Purrfect Paws | Sign Up' />
