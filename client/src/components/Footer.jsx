@@ -38,9 +38,14 @@ export function Footer() {
                 </Link>
               </li>
               <li className="p-5">
-                <a className="font-medium text-gray-600 hover:text-gray-700" href="#">
-                  Contact Us
-                </a>
+              <a
+  className="font-medium text-gray-600 hover:text-gray-700"
+  href="https://github.com/subhams56"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Contact Us
+</a>
               </li>
             </ul>
           </div>

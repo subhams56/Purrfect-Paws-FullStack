@@ -18,6 +18,8 @@ import AddCat from "./pages/AddCat"
 import Adopt from "./pages/Adopt"
 import AdoptionManage from "./pages/AdoptionManage"
 import AdoptionStatus from "./pages/AdoptionStatus"
+import { FAQ } from "./pages/FAQ"
+import { Instagram } from "lucide-react"
 
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route
           path="/account"
           element={<ProtectedRoute component={Account} />}

@@ -3,6 +3,7 @@ import logo from '../assets/log2.png';
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import catpaw from '../assets/catpaw.json';
+import arrow from '../assets/arrow.json';
 
 const Navbar = () => {
   return (
@@ -33,7 +34,11 @@ const Navbar = () => {
                 <Link to='/services'>Services</Link>
               </li>
               <li className='cursor-pointer hover:text-xl'>
-                <Link to='/pricing'>Pricing</Link>
+              <div className='flex '>
+              <Link to='/faq'>FAQs</Link>
+              <Lottie animationData={arrow} className='w-[30px] h-[30px]  rounded-full' />
+              </div>
+                
               </li>
             </ul>
           </div>
