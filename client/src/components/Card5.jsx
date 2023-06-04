@@ -16,7 +16,7 @@ export function Card5(props) {
       .then(response => {
         console.log(response.data);
         alert('Adoption deleted successfully!');
-        navigate('/adoptionManage');
+        navigate('/account');
         
         
       })

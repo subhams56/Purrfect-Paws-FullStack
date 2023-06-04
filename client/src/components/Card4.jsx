@@ -16,7 +16,7 @@ export function Card4(props) {
       const response = await axios.delete(`https://purrfect-paws.onrender.com/api/cats/deleteCat/${props.id}`);
       console.log(response);
       alert('Cat deleted successfully.');
-      navigate('/account');
+      navigate('/feed');
     } catch (error) {
       console.error(error);
       alert('Something went wrong. Please try again.');
