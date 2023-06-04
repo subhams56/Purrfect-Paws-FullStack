@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import catsvg from '../assets/catsvg3.svg';
 import Lottie from 'lottie-react';
 import green from '../assets/green.json';
-
+import { useNavigate } from 'react-router-dom';
 export function Card4(props) {
+  const navigate = useNavigate();
   const [isDeleting, setIsDeleting] = useState(false);
 
   const deleteCat = async () => {
@@ -15,7 +16,7 @@ export function Card4(props) {
       const response = await axios.delete(`https://purrfect-paws.onrender.com/api/cats/deleteCat/${props.id}`);
       console.log(response);
       alert('Cat deleted successfully.');
-      window.location.reload(); // Reload the page after successful deletion
+      navigate('/account');
     } catch (error) {
       console.error(error);
       alert('Something went wrong. Please try again.');

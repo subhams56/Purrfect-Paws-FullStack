@@ -3,17 +3,22 @@ import axios from 'axios';
 import { ArrowUpRight } from 'lucide-react'
 import Lottie from "lottie-react";
 import del from  "../assets/delete.json"
+import { useNavigate } from 'react-router-dom';
 
 
 export function Card5(props) {
+  const navigate = useNavigate();
 
   const deleteAdoption = () => {
     const apiUrl = `https://purrfect-paws.onrender.com/api/adopt/deleteAdoption/${props._id}`;
 
     axios.delete(apiUrl)
       .then(response => {
-        // Reload the page on successful deletion
-        window.location.reload();
+        console.log(response.data);
+        alert('Adoption deleted successfully!');
+        navigate('/manageAdoption');
+        
+        
       })
       .catch(error => {
         console.log(error);
