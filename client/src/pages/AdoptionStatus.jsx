@@ -8,13 +8,18 @@ import { ArrowLeft } from 'lucide-react';
 import Banner from '../components/Banner';
 import Lottie from "lottie-react";
 import loading from "../assets/loading.json"
+import { useNavigate } from 'react-router-dom';
 
 const AdoptionStatus = ({ match }) => {
+
+  const navigate = useNavigate();
   const { catId } = useParams();
   const [adoptions, setAdoptions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+
+    
     const fetchAdoptions = async () => {
       try {
         const response = await axios.get(
@@ -150,7 +155,7 @@ const AdoptionStatus = ({ match }) => {
                                       console.log(response);
                                       alert('Adoption request deleted.');
                                       
-                                      window.location.reload();
+                                      navigate('/account');
                                     } catch (error) {
                                       console.error(error);
                                       alert('Error: Something went wrong. Please try again.');
