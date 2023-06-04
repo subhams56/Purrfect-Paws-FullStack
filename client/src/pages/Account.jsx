@@ -11,14 +11,15 @@ import { Helmet } from 'react-helmet';
 import Nav4 from '../components/Nav4';
 import Lottie from "lottie-react";
 import cat from "../assets/cat.json"
+import loading from "../assets/loading2.json"
 import { Link } from 'react-router-dom';
 import { ArrowBigRight, ArrowDownRight } from 'lucide-react';
+
 
 const Account = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
-
-  
+  const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 
   useEffect(() => {
     const isAuthenticated = checkAuthentication();
@@ -26,9 +27,6 @@ const Account = () => {
     if (!isAuthenticated) {
       navigate('/unauthorized');
     } else {
-
-     
-
       // Retrieve userID from localStorage
       const userID = localStorage.getItem('userID');
       const token = localStorage.getItem('token');
@@ -43,7 +41,7 @@ const Account = () => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        });
+      });
 
       const headers = {
         Authorization: `token ${token}`,
@@ -51,7 +49,7 @@ const Account = () => {
 
       // Make GET request to fetch user data
       axios
-        .get(`http://localhost:3000/api/users/${userID}`, { headers })
+        .get(`https://purrfect-paws.onrender.com/api/users/${userID}`, { headers })
         .then((response) => {
           // Log the response data
           console.log(response.data);
@@ -59,8 +57,8 @@ const Account = () => {
           // Set the user data in state
           setUserData(response.data.userData);
 
-          // Extract username from the response
-          // Display welcome message using alert
+          // Set isLoading to false to indicate that the data has been loaded
+          setIsLoading(false);
         })
         .catch((error) => {
           // Log the error
@@ -68,9 +66,6 @@ const Account = () => {
         });
     }
   }, [navigate]);
-
-
-
 
   const logout = () => {
     // Clear localStorage
@@ -84,35 +79,39 @@ const Account = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen ">
-    <Helmet title="Purrfect Paws | Account" />
+    <div className="flex flex-col min-h-screen  ">
+      <Helmet title="Purrfect Paws | Account" />
       {/* Navbar */}
       <Nav4 />
 
       {/* Profile section */}
       <section className="px-4 pt-8 pb-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-        <ToastContainer
-position="top-center"
-autoClose={5000}
-hideProgressBar
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="dark"
-/>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
           <div className="overflow-hidden bg-white shadow sm:rounded-lg">
             <div className="px-4 py-5 sm:px-6">
-            <img  className='w-[240px] h-[140px] ml-[160px]' src={profilesvg} alt='profilesvg'/>
+              <img className='w-[240px] h-[140px] ml-[160px]' src={profilesvg} alt='profilesvg' />
               <h2 className="text-xl font-medium leading-6 text-gray-900"> Account</h2>
-              
               <p className="max-w-2xl mt-1 text-sm text-gray-500">View and manage your account details.</p>
             </div>
-            <div className="px-4 py-5 border-t border-gray-200 sm:p-0">
-              <dl className="sm:divide-y sm:divide-gray-200">
+            {isLoading ? (
+              <div className="px-4 py-5 sm:p-0">
+                <p className='mx-auto text-center'>Loading Account Info... <Lottie animationData={loading} className=' mx-auto w-36 h-auto' /> </p> 
+              </div>
+            ) : (
+              <div className="px-4 py-5 border-t border-gray-200 sm:p-0">
+                <dl className="sm:divide-y sm:divide-gray-200">
                 {userData && (
                   <>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
@@ -130,14 +129,25 @@ theme="dark"
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
 
-                      <dt className="ml-4 text-sm font-medium text-gray-500">Interested Cats : {userData.interestedCats.length}</dt>
-                      <dd className="mt-1 text-sm font-semibold text-gray-900 sm:mt-0 sm:col-span-2"> {userData.interestedCats.map(cat => (
-      <p key={cat._id}>{cat.name},</p>
-      
-    ))} </dd>
-    <Link to="/adoptionManage" className=' flex items-center h-7 w-20 ml-4 text-center bg-red-200 border border-black rounded-lg text-sm'>Manage
-    <ArrowBigRight className="inline-block w-4 h-4" />
-    </Link>
+                      <dt className="ml-4 text-sm font-medium text-gray-500">Interested Cats : </dt>
+                      <dd className="mt-1 text-sm font-semibold text-gray-900 sm:mt-0 sm:col-span-2">
+        {userData.interestedCats.length === 0 ? (
+          <p>You have not shown interest in any cat yet.</p>
+        ) : (
+          <>
+            {userData.interestedCats.map((cat) => (
+              <p key={cat._id}>{cat.name},</p>
+            ))}
+            <Link
+              to="/adoptionManage"
+              className="flex items-center h-7 w-20 ml-4 text-center bg-red-200 border border-black rounded-lg text-sm"
+            >
+              Manage
+              <ArrowBigRight className="inline-block w-4 h-4" />
+            </Link>
+          </>
+        )}
+      </dd>
     
                       
                     </div>
@@ -166,16 +176,16 @@ theme="dark"
                   </>
                 )}
                 {/* Add more profile fields as needed */}
-              </dl>
-            </div>
+                </dl>
+              </div>
+            )}
           </div>
         </div>
         <div className='items-center mx-auto ml-[210px]'>
-        <button onClick={logout} className="p-2 mx-auto mt-2 border border-black rounded-lg bg-sky-200 hover:bg-purple-400">
-          Logout
-        </button>
+          <button onClick={logout} className="p-2 mx-auto mt-2 border border-black rounded-lg bg-sky-200 hover:bg-purple-400">
+            Logout
+          </button>
         </div>
-       
       </section>
 
       {/* Footer */}

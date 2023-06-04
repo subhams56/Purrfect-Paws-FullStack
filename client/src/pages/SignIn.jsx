@@ -5,19 +5,22 @@ import { Helmet } from 'react-helmet';
 import logo from '../assets/log2.png';
 import image from '../assets/catimg14.jpg';
 import Lottie from "lottie-react";
-import user from "../assets/user.json"
-import login from "../assets/login.json"
+import user from "../assets/user.json";
+import login from "../assets/login.json";
+
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
   const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/login', {
+      setIsLoading(true); // Set loading state to true
+      const response = await axios.post(`https://purrfect-paws.onrender.com/api/auth/login`, {
         email,
         password,
       });
@@ -28,11 +31,14 @@ const SignIn = () => {
       localStorage.setItem('token', token);
       localStorage.setItem('user', userData.username);
       
-      
+      setIsLoading(false); // Set loading state to false
       navigate('/account');
     } catch (error) {
-      console.error(error);
-      alert('Login Failed. Try Again');
+      
+      console.log(error.response.data);
+
+      alert(`${error.response.data.msg}`);
+      setIsLoading(false); // Set loading state to false
     }
   };
 
@@ -88,8 +94,9 @@ const SignIn = () => {
               <button
                 className="px-4 py-2 font-semibold text-sm text-white rounded bg-[#614c68] hover:bg-violet-700 focus:outline-none focus:shadow-outline"
                 type="submit"
+                disabled={isLoading} // Disable the button while loading
               >
-                Log In
+                {isLoading ? '⌛ Logging in...' : 'Log In'} {/* Display 'Loading...' while loading */}
               </button>
               <Link
                 to="/"

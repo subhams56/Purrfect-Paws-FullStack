@@ -7,6 +7,7 @@ import logo from '../assets/log2.png';
 import { Helmet } from "react-helmet";
 
 
+
 const SignUp = () => {
   return (
     <>

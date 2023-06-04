@@ -5,6 +5,8 @@ import axios from 'axios'
 
 
 
+
+
 const TestData = () => {
 
     const [catData , setCatData] = useState([])
@@ -12,7 +14,7 @@ const TestData = () => {
     useEffect(() => {
 
         const getCats = async ()=>{
-            const cats = await axios.get('http://localhost:3000/api/cats/');
+            const cats = await axios.get(`https://purrfect-paws.onrender.com/api/cats/`);
             console.log(cats.data.cats);
             setCatData(cats.data.cats);
         };
@@ -33,7 +35,7 @@ const TestData = () => {
     <h3>{cat.breed}</h3>
     <h3>{cat.age}</h3>
     <img className='h-[40px] w-[40px]'
-      src={`http://localhost:3000/uploads/${cat.image}`}
+      src={`https://purrfect-paws.onrender.com/uploads/${cat.image}`}
       alt={cat.name}
     />
     <h3>{cat.gender}</h3>

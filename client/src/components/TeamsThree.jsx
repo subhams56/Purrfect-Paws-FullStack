@@ -29,7 +29,7 @@ export function TeamsThree() {
     <Link to='/feed' className='p-3 mx-auto text-lg font-bold text-black bg-white border-2 border-black border-opacity-50 hover:bg-sky-300 rounded-xl font-handwriting2'>
               🐈Discover More
             </Link>
-            <Link to='/help' className='p-3 mx-auto text-lg font-bold text-black bg-white border-2 border-black border-opacity-50 hover:bg-sky-300 rounded-xl font-handwriting2'>
+            <Link to='/faq' className='p-3 mx-auto text-lg font-bold text-black bg-white border-2 border-black border-opacity-50 hover:bg-sky-300 rounded-xl font-handwriting2'>
               🐈Need Help?
             </Link>
             </div>

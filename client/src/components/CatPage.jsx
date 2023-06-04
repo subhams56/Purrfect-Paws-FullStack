@@ -13,6 +13,7 @@ const CatPage = () => {
   Topscroll();
   const { id } = useParams();
   const [catData, setCatData] = useState(null);
+  const [isRequesting, setIsRequesting] = useState(false);
 
   const adopt = async () => {
     const isAuthenticated = checkAuthentication(); // Check if user is authenticated
@@ -22,8 +23,10 @@ const CatPage = () => {
       const interestedUserId = localStorage.getItem('userID');
       const ownerId = catData.owner._id;
 
+      setIsRequesting(true); // Set the loading state to true when the request is being made
+
       try {
-        const response = await axios.post('http://localhost:3000/api/adopt/createAdoption', {
+        const response = await axios.post(`https://purrfect-paws.onrender.com/api/adopt/createAdoption`, {
           catId,
           interestedUserId,
           ownerId,
@@ -31,9 +34,12 @@ const CatPage = () => {
 
         console.log(response);
         alert('Adoption request added!');
+        navigate('/account');
       } catch (error) {
         console.log(error);
         alert('Something went wrong.');
+      } finally {
+        setIsRequesting(false); // Set the loading state back to false when the request is completed
       }
     } else {
       alert('Please log in first to adopt.');
@@ -44,7 +50,7 @@ const CatPage = () => {
   useEffect(() => {
     const fetchCatData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/cats/${id}`);
+        const response = await axios.get(`https://purrfect-paws.onrender.com/api/cats/${id}`);
         setCatData(response.data.cat);
         console.log(response.data.cat);
       } catch (error) {
@@ -62,7 +68,7 @@ const CatPage = () => {
         {catData ? (
           <div className="w-full max-w-md p-6 mt-8 bg-white rounded-md shadow-md ">
             <img
-              src={`http://localhost:3000/uploads/${catData.image}`}
+              src={`https://purrfect-paws.onrender.com/uploads/${catData.image}`}
               className="w-auto mx-auto rounded-md h-72"
               alt=""
             />
@@ -79,8 +85,9 @@ const CatPage = () => {
               type="button"
               className="inline-flex items-center px-3 py-2 mt-4 text-sm font-semibold text-white bg-black rounded-md hover:bg-black/80"
               onClick={adopt}
+              disabled={isRequesting} // Disable the button when requesting
             >
-              Adopt!
+              {isRequesting ? 'Requesting...' : 'Adopt!'}
               <ArrowRight className="w-4 h-4 ml-2" />
             </button>
           </div>

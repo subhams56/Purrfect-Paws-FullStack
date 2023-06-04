@@ -3,10 +3,12 @@ import Nav3 from '../components/Nav3'
 import Footer from '../components/Footer'
 import Lottie from 'lottie-react';
 import faq from '../assets/faq.json';
+import { Helmet } from 'react-helmet';
 
 export function FAQ() {
   return (
     <>
+    <Helmet title="Purrfect Paws | FAQ" />
     <Nav3/>
     <section className="px-2 mt-[30px] md:mb-[200px]">
       <div className="mx-auto max-w-7xl py-10">

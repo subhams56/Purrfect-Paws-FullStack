@@ -4,6 +4,8 @@ import axios from "axios"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 const Card3 = () => {
   const notify = () => toast("Wow so easy!");
     const [posts , setCatData] = useState([])
@@ -11,7 +13,7 @@ const Card3 = () => {
     useEffect(() => {
       const getCats = async () => {
         try {
-          const cats = await axios.get('http://localhost:3000/api/cats/');
+          const cats = await axios.get(`https://purrfect-paws.onrender.com/api/cats/`);
           console.log(cats.data.cats);
           setCatData(cats.data.cats);
           
@@ -42,7 +44,7 @@ const Card3 = () => {
    
           {posts.map((post) => (
             <div key={post._id} className="border">
-              <Link to={`/cat/${post._id}`}><img src={`http://localhost:3000/uploads/${post.image}`} className="w-full rounded-md aspect-video" alt="" /></Link>
+              <Link to={`/cat/${post._id}`}><img src={`https://purrfect-paws.onrender.com/uploads/${post.image}`} className="w-full rounded-md aspect-square object-cover" alt="" /></Link>
               <div className="p-3 min-h-min">
                 
                 <Link to={`/cat/${post._id}`} className="flex mt-4 text-xl font-bold text-gray-900 text-bold">{post.name}</Link>

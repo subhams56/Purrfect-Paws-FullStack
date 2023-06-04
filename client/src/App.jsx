@@ -4,6 +4,7 @@ import ProtectedRoute from "./middlewares/ProtectedRoute"
 
 
 
+
 import SignUp2 from "./pages/Signup2"
 import SignIn from "./pages/SignIn"
 import Feed from "./pages/Feed"
@@ -15,14 +16,16 @@ import TestData from "./pages/TestData"
 import CatPage from "./components/CatPage"
 import { Unauthorized } from "./pages/Unauthorized"
 import AddCat from "./pages/AddCat"
-import Adopt from "./pages/Adopt"
 import AdoptionManage from "./pages/AdoptionManage"
 import AdoptionStatus from "./pages/AdoptionStatus"
 import { FAQ } from "./pages/FAQ"
 import { Instagram } from "lucide-react"
 
 
+
+
 function App() {
+ 
   
  
 
@@ -45,7 +48,7 @@ function App() {
         <Route path="/test" element={<TestData />} />
         <Route path="/cat/:id" element={<CatPage />} />
         <Route path="/addcat" element={<AddCat />} />
-        <Route path="/adopt" element={<Adopt />} />
+       
         <Route path="/adoptionManage" element={<AdoptionManage />} />
         <Route path="/adoptionStatus/:catId" element={<AdoptionStatus/>} />
         {/* ...Other routes... */}

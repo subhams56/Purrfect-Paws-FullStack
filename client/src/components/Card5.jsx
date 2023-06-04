@@ -4,10 +4,11 @@ import { ArrowUpRight } from 'lucide-react'
 import Lottie from "lottie-react";
 import del from  "../assets/delete.json"
 
+
 export function Card5(props) {
 
   const deleteAdoption = () => {
-    const apiUrl = `http://localhost:3000/api/adopt/deleteAdoption/${props._id}`;
+    const apiUrl = `https://purrfect-paws.onrender.com/api/adopt/deleteAdoption/${props._id}`;
 
     axios.delete(apiUrl)
       .then(response => {
